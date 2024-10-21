@@ -56,9 +56,13 @@ File Structure
 
 dom-project-1/
 │
+
 ├── index.html      # Main HTML file
+
 ├── script.js       # JavaScript file with DOM manipulation logic
+
 └── README.md       # This README file
+
 
 Live Demo
 
@@ -66,13 +70,15 @@ Live Demo
 You can access the live version of this project using the following link:
 
 
+
+ link: -- https://vishnnsingh.github.io/Fs-23_Module_4/DOM_projec_1/index.html
+
 Contact
 
 
 For any questions or feedback, feel free to reach out via email or through GitHub.
 
 
- link: -- https://vishnnsingh.github.io/Fs-23_Module_4/DOM_projec_1/index.html
 
 Email: <kumarvishnu65834@gmail.com>
 
