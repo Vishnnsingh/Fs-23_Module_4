@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b79e9e;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.box {
+    width: 45%;
+    background-color: #df11a8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(217, 255, 0, 0.966);
+    border: 5px solid rgb(148, 242, 8);
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+button {
+    margin: 0 5px;
+    padding: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#total-price {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+/* Products List Styles */
+#products {
+    width: 90%;
+    padding: 15px;
+    background-color: #64abaa;
+    border-radius: 8px;
+    /* background: transparent; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #products li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #14d8dc;
+  }
+  
+  #products li span {
+    /* flex: 1; */
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  #products li button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #194c86;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  #products li button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Cart List Styles */
+  #cart-items {
+    width: 90%;
+    padding: 15px;
+    background-color: #cbd5a0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #cart-items li {
+    padding: 18px 94px;
+    border-bottom: 1px solid #bd2323;
+    font-size: 16px;
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+  }
