@@ -1,0 +1,128 @@
+styles.css
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #000000;
+    color: #f0f0f0;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#toggle-switch {
+    display: none;
+}
+
+.toggle-label {
+    width: 60px;
+    height: 30px;
+    background: #d6dd0c;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+}
+
+#toggle-switch:checked + .toggle-label {
+    background: #c82f2f;
+}
+
+#toggle-switch:checked + .toggle-label .toggle-icon {
+    transform: translateX(30px);
+    background: url('moon-icon.png') no-repeat center center / contain;
+}
+
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+    background-image: url('sun-icon.png'); /* Add a sun icon for light mode */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#toggle-switch:checked + .toggle-label .toggle-icon {
+    transform: translateX(30px);
+    background-image: url('moon-icon.png'); /* Add a moon icon for dark mode */
+}
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+}
+
+.icon-sun, .icon-moon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #fff;
+    transition: opacity 0.3s;
+}
+
+.icon-sun {
+    opacity: 1; /* Sun icon visible in light mode */
+}
+
+.icon-moon {
+    opacity: 0; /* Moon icon hidden in light mode */
+}
+
+#toggle-switch:checked + .toggle-label .toggle-icon {
+    transform: translateX(30px);
+}
+
+#toggle-switch:checked + .toggle-label .toggle-icon .icon-sun {
+    opacity: 0; /* Hide sun icon in dark mode */
+}
+
+#toggle-switch:checked + .toggle-label .toggle-icon .icon-moon {
+    opacity: 1; /* Show moon icon in dark mode */
+}
+
+
+h1{
+    margin-left: 550px;
+}
+
+
+
+
+
+
+
+
+
+
+
