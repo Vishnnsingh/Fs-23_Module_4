@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keycode Keyboard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Keycode Keyboard</h1>
+        <div class="key-display">
+            <span id="key">Press any key</span>
+            <span id="keycode">Key Code: --</span>
+        </div>
+        <div class="history-container">
+            <h2>Key Press History</h2>
+            <ul id="key-history"></ul>
+        </div>
+    </div>
+
+    <audio id="key-sound" src="keypress-sound.mp3" preload="auto"></audio>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.key-display {
+    margin: 20px 0;
+}
+
+.key-display span {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.history-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.history-container h2 {
+    font-size: 1.2rem;
+}
+
+#key-history {
+    list-style-type: none;
+    padding: 0;
+}
+
+#key-history li {
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
