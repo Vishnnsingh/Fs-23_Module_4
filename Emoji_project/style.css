@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    /* background-color: #ffdcbb; */
+    background-color: #97b4b3;
+    font-family: sans-serif;
+    /* color: #eee; */
+    font-size: 25px;
+}
+
+h1{
+    color: black;
+    width: 100%;
+    height: 70px;
+    /* background-color: #c8c9bd; */
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        background-image: linear-gradient(#f35c5c, #ffb341);
+}
+
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navbar #filter-emogi button{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 25px;
+    /* background-color: #ffa57b; */
+    background-color: #b13335;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: #efefef;
+    border: none;
+    cursor: pointer;
+}
+.navbar #filter-emogi button:hover{
+    background-color: #b59884;
+    color: black;
+}
+
+/* .search-bar{
+
+} */
+#search{
+    padding: 10px 10px 10px 32px;
+    background-image: url("./magnifying-glass.png");
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 10px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+    border: none;
+    
+}
+
+.navbar>img{
+    width: 20px;
+    height: 20px;
+}
+#random-emogi{
+    height: 20px;
+    width: 20px;
+}
+
+#display-emoji{
+    /* border: 1px solid red; */
+    margin: 0px 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    /* border-radius: 10px; */
+    gap: 50px;
+}
