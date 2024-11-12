@@ -1,134 +1,99 @@
-const pokeTypeURL = 'https://pokeapi.co/api/v2/type/';
-const pokeQueryParams = new URLSearchParams(window.location.search);
-// console.log(pokeQueryParams);
-const typeParams = new URLSearchParams(window.location.search);
-const typeSearch = typeParams.get('type');
-// console.log(typesearch);
+let container = document.getElementById("pokemon_card_container");
+let searchInput = document.getElementById("search");
+let filterBtn = document.getElementById("filter");
+let pokeymon_card_container_1 = document.getElementById("pokeymon_card_container_1");
 
-const pokedex = document.getElementById('pokedex');
-const pokemonSearchForm  = document.querySelector('#pokemon-search-form');
-const pokemonTypeFilter = document.querySelector('.type-filter');
+//  function createCardBigScren(){
+//     let Bigcard = document.createElement("div");
+//     Bigcard.classList.add("Bigcard");
+//     Bigcard.innerHTML=`
+//     <div class='Bigcard-inner' >
+//     <div class='id'>${pokemon.id}</div>
+//      <img src='${pokemon.sprites.front_default}'>
+//       <div class='name'>${pokemon.name}</div>
+//       </div>
+//     `
 
-let pokemonArray = [];
-let uniqueTypes = new Set();
+//     console.log(Bigcard)
+//      return Bigcard;
+   
+//  }
+ 
+function createCard(pokemon) {
+  let card = document.createElement("div");
+  card.classList.add("card");
+  
+  card.innerHTML = `
+    <div class='card-inner ${pokemon.types[0].type.name}' >
+    <div class='card-front'>
+    <div class='id'>${pokemon.id}</div>
+    <img src='${pokemon.sprites.front_default}'>
+    <div class='name'>${pokemon.name}</div>
+    <div class='type'>${pokemon.types[0].type.name}</div>
+    </div>
 
-const fetchPokemon = () => {
-    const promises = [];
-    for(let i=1; i<= 151; i++){
-        const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        console.log(pokemonURL);
-        promises.push(fetch(pokemonURL).then(response => response.json()))
-    }
-
-    Promise.all(promises)
-    .then(allPokemon =>{
-        const firstGenPokemon = allPokemon.map(pokemon=>({
-            frontImage: pokemon.sprites['front_default'],
-            pokemon_id:pokemon.id,
-            name:pokemon.name,
-            type:pokemon.types[0].type.name,
-            abilities:pokemon.abilities.map(ability=>ability.ability.name).join(', '),
-            description:pokemon.species.url
-        }))
-        pokemonArray = firstGenPokemon;
-        // console.log(promises);
-        console.log(firstGenPokemon);
-        createPokemonCards(firstGenPokemon);
-    })
-    .then(generateTypes);
+    <div class='back-card'>
+    <img src='${pokemon.sprites.back_default}'>
+     <div class='name'>${pokemon.name}</div>
+     <div class='ability'>${pokemon.abilities[0].ability.name}</div>
+    </div>
+    </div>
+    `;
+    // console.log(card)
+    return card;
 }
 
-fetchPokemon()
+filterBtn.addEventListener('click', function(){
+    let allCards = document.querySelectorAll(".card");
+    allCards.forEach(function(card){
+        let cardType = card.querySelector(".type").textContent;
 
-pokemonSearchForm.addEventListener('input',(event)=>{
-    const filterPokemon = pokemonArray.filter(pokemon => pokemon.name.includes(event.target.value.toLowerCase()))
-    clearPokedex()
-    createPokemonCards(filterPokemon)
+        if(cardType === type.value){
+             card.style.display = "block"
+        }else{
+             card.style.display = "none"
+        }
+    })
 })
 
-function clearPokedex(){
-    let section = document.querySelector('#pokedex');
-    section.innerHTML = ''
+searchInput.addEventListener('keyup', function(){
+    let searchValue = searchInput.value.toLowerCase();
+    // searchValue.tolowerCase();
+
+    // console.log(searchValue);
+    let allCards = document.querySelectorAll(".card");
+    // console.log(allCards);
+    allCards.forEach(function(card){
+        let cradName = card.querySelector(".name").textContent;
+        // console.log(cradName);
+        if(cradName.startsWith(searchValue)){
+            card.style.display = "block"
+        }else{
+            card.style.display = "none"       
+        }
+    })   
+})
+
+async function fetchPokemondata(i) {
+//   console.log(i);
+  let data = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+  let result = await data.json();
+  return result;
 }
 
-function createPokemonCards(pokemons){
-    let currentPokemon = pokemons;
-    if(typeSearch){
-        currentPokemon = pokemons.filter(pokemon => pokemon.type.includes(typeSearch.toLowerCase()))
-    }
-    currentPokemon.forEach(pokemon=>{
-        createPokemonCard(pokemon)
-    })
+async function fetchPokemon() {
+  for (let i = 1; i <= 100; i++) {
+    let pokemon = await fetchPokemondata(i);
+    // console.log(pokemon);
+
+    // let bigpokemonCard = createCardBigScren();
+    // pokeymon_card_container_1.appendChild(bigpokemonCard);
+    let pokemonCard = createCard(pokemon);
+    
+    container.appendChild(pokemonCard);
+  }
 }
 
-function createPokemonCard(pokemon) {
-    // total card
-    const flipCard = document.createElement("div")
-    flipCard.classList.add("flip-card")
-    flipCard.id = `${pokemon.name}`
-    pokedex.append(flipCard)
-    
-    // front & back container
-    const flipCardInner = document.createElement("div")
-    flipCardInner.classList.add("flip-card-inner")
-    flipCardInner.id = `${pokemon.type}`
-    flipCard.append(flipCardInner)
+fetchPokemon();
 
-    // front of card
-    const frontCard = document.createElement("div")
-    frontCard.classList.add('front-pokemon-card')
 
-    const frontImage = document.createElement('img')
-    frontImage.src = `${pokemon.frontImage}`
-    frontImage.classList.add("front-pokemon-image")
-
-    const frontPokeName = document.createElement('h2')
-    frontPokeName.innerHTML = `<a href="/pokemon.html?pokemon_id=${pokemon.pokemon_id}">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</a>`
-
-    const frontPokeID = document.createElement('p')
-    frontPokeID.textContent = `#${pokemon.pokemon_id}`
-    frontPokeID.classList.add("front-poke-id")
-
-    const frontDescription = document.createElement("p")
-    
-    
-    const frontPokeType = document.createElement('p')
-    frontPokeType.textContent = `${pokemon.type.toUpperCase()}`
-    frontPokeType.classList.add("front-pokemon-type")
-
-    frontCard.append(frontImage, frontPokeID, frontPokeName, frontDescription, frontPokeType)
-    
-    // back of card
-    const backCard = document.createElement("div")
-    backCard.classList.add('back-pokemon-card')
-
-    const backImage = document.createElement('img')
-    backImage.src = `${pokemon.backImage}`
-    backImage.classList.add("back-pokemon-image")
-
-    const backPokeID = document.createElement('p')
-    backPokeID.textContent = `#${pokemon.pokemon_id}`
-    backPokeID.classList.add("back-poke-id")
-
-    const backPokeName = document.createElement('h2')
-    backPokeName.innerHTML = `<a href="/pokemon.html?pokemon_id=${pokemon.pokemon_id}">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</a>`
-    backPokeName.classList.add("back-pokemon-name")
-
-    const backPokeAbilities = document.createElement("p")
-    backPokeAbilities.innerHTML = `<p>Abilities:<br>${pokemon.abilities}<p>`
-    backPokeAbilities.classList.add("back-pokemon-abilities")
-
-    backCard.append(backImage, backPokeID, backPokeName, backPokeAbilities)
-    flipCardInner.append(frontCard, backCard);
-    uniqueTypes.add(pokemon.type);
-}
-
-function generateTypes(){
-    uniqueTypes.forEach(type=>{
-        const typeOption = document.createElement('option');
-        typeOption.textContent = type.charAt(0).toUpperCase() + type.slice(1);
-        typeOption.value = type;
-
-        pokemonTypeFilter.append(typeOption)
-    })
-}
