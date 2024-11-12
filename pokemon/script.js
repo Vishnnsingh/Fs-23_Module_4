@@ -3,21 +3,19 @@ let searchInput = document.getElementById("search");
 let filterBtn = document.getElementById("filter");
 let pokeymon_card_container_1 = document.getElementById("pokeymon_card_container_1");
 
-//  function createCardBigScren(){
-//     let Bigcard = document.createElement("div");
-//     Bigcard.classList.add("Bigcard");
-//     Bigcard.innerHTML=`
-//     <div class='Bigcard-inner' >
-//     <div class='id'>${pokemon.id}</div>
-//      <img src='${pokemon.sprites.front_default}'>
-//       <div class='name'>${pokemon.name}</div>
-//       </div>
-//     `
+ function createCardBigScren(pokemon){
+    let Bigcard = document.createElement("div");
+    Bigcard.classList.add("Bigcard");
+    Bigcard.innerHTML=`
+    <div class='Bigcard-inner' >
+     <img src='${pokemon.sprites.front_default}'>
+      </div>
+    `
 
-//     console.log(Bigcard)
-//      return Bigcard;
+    console.log(Bigcard)
+     return Bigcard;
    
-//  }
+ }
  
 function createCard(pokemon) {
   let card = document.createElement("div");
@@ -85,9 +83,10 @@ async function fetchPokemon() {
   for (let i = 1; i <= 100; i++) {
     let pokemon = await fetchPokemondata(i);
     // console.log(pokemon);
+   
+    let bigpokemonCard = createCardBigScren(pokemon);
+    pokeymon_card_container_1.appendChild(bigpokemonCard);
 
-    // let bigpokemonCard = createCardBigScren();
-    // pokeymon_card_container_1.appendChild(bigpokemonCard);
     let pokemonCard = createCard(pokemon);
     
     container.appendChild(pokemonCard);
