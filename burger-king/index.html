@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger-King</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsWlaL1z_0GFSnu96RiA5zNiANbQb7uL4YKA&s" alt="Burger King Logo">
+        </div>
+        <div class="options">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <button id="btn">Order Now</button>
+        <div id="fooditems">
+            <input type="checkbox" value="Burger" name="foodItem" id="burger">
+            <label for="burger">Burger</label>
+            <input type="checkbox" value="Fries" name="foodItem" id="fries">
+            <label for="fries">Fries</label>
+            <input type="checkbox" value="Coke" name="foodItem" id="Coke">
+            <label for="coke">Coke</label>
+        </div>
+
+        <div id="orderId" style="display:none;">Order Id: <span id="orderIdValue"></span></div>
+        <img id="foodImage" src="" alt="Selected Food" style="display:none;">
+
+        <div id="statusMessage"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

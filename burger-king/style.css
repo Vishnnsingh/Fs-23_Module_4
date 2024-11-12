@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a3c3b;
+    padding: 10px;
+}
+
+nav div img {
+    width: 60px;
+    height: auto;
+    margin-left: 3rem;
+}
+
+img {
+    border-radius: 10px;
+    width: 60px;
+}
+
+nav .options ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 3rem;
+}
+
+nav .options ul li {
+    margin: 0 15px;
+    position: relative;
+    font-size: 18px;
+}
+
+nav .options ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav .options ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav .options ul li:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+nav .options ul li:hover a {
+    background-color: #c41818;
+    color: #fff;
+    border-radius: 5px;
+}
+
+nav .options ul li:hover a {
+    transform: translateY(-2px);
+}
+
+nav .options ul li:hover {
+    animation: bounce 0.3s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.container {
+    background-color: #77807d;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0rem;
+}
+
+.container button {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0px 1px 10px rgb(0, 0, 0);
+    background-color: #0dc692ec;
+    transition: all 0.3s ease;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-style: oblique;
+    color: #fff;
+}
+
+.container button:hover {
+    transform: scale(0.9);
+    transform: translateY(-2px);
+}
+
+#fooditems {
+    display: flex;
+    padding-top: 20px;
+    border-radius: 8px;
+}
+
+#fooditems input[type="checkbox"] {
+    display: flex;
+    font-size: 22px;
+    margin-left: 1.3rem;
+}
+
+#fooditems label {
+    display: flex;
+    padding-left: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 20px;
+    text-align: center;
+}
+
+#fooditems label:hover {
+    transform: translateY(-3px);
+}
+
+#orderId {
+    padding: 1rem;
+}
+
+#statusMessage {
+    padding: 1.2rem;
+    transition: all 0.3s linear;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+}
+
+#foodImage {
+    transition: all 0.3s ease-in-out;
+    width: 400px;
+    max-height: 350px;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.container img {
+    box-shadow: 0px 1px 5px;
+    border-radius: 7px;
+}
