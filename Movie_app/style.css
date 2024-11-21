@@ -1,0 +1,247 @@
+/* Global Styles */
+
+/* @import 'animate.css'; */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+  }
+  
+  /* Header */
+  .header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #1d3030;
+    color: white;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    /* margin-bottom: 250px; */
+  }
+  
+  .header input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  /* main{
+    margin-top: 250px;
+  } */
+  /* Results Container */
+  #results-container {
+    margin-top: 100px;
+    /* padding-top: 250px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    
+  }
+  
+  /* Movie Card */
+  .movie-card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  }
+  
+  .movie-card .movie-info {
+    padding: 10px;
+  }
+  
+  .movie-card .movie-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  #pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .pagination-btn {
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination-btn:hover {
+    background-color: #555;
+  }
+  
+
+  /* Heading for Top Movies */
+.top-movies-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  /* Container for all movies */
+  .movies-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 4 columns per row */
+    gap: 20px; /* Spacing between movies */
+    padding: 20px;
+   
+  }
+  
+  /* Individual movie cards */
+  .movie-card {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 72%;
+    border-radius: 5px;
+  }
+  
+  .movie-info {
+    margin-top: 10px;
+  }
+  
+
+
+
+  #search-container {
+    margin: 10px;
+  }
+  
+  #search-bar {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  #search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #search-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  #clear-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336; /* Red color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #clear-button:hover {
+    background-color: #d32f2f; /* Darker red */
+  }
+  
+  #footer {
+    background-color: #1d3030;
+    color: #f4f4f4;
+    padding: 20px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .footer-section {
+    width: 30%;
+    margin: 10px 0;
+  }
+  
+  .footer-section h3 {
+    color: #ffcc00;
+    margin-bottom: 5px;
+  }
+  
+  .footer-section p,
+  .footer-section ul {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 5px;
+  }
+  
+  .footer-section ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
